@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import Eye from "@/components/icons/See";
 import CircleArrowRight from "@/components/icons/ArrowRight";
 import XIcon from "@/components/icons/XIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
 
 const quotes: QuoteListType = [
   {
@@ -40,6 +41,7 @@ export default function HomePage() {
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<number | null>(null);
   const [xLinkHovered, setXLinkHovered] = useState(false);
+  const [githubLinkHovered, setGithubLinkHovered] = useState(false);
 
   useEffect(() => {
     function handleDocumentClick(event: MouseEvent) {
@@ -108,6 +110,7 @@ export default function HomePage() {
           >
             Developer, Student & Founder (+ Investor?)
           </motion.p>
+          <div className="flex items-center gap-5">
           <motion.a
             href="https://x.com/devbysami"
             target="_blank"
@@ -144,6 +147,43 @@ export default function HomePage() {
             </motion.span>
             @devbysami
           </motion.a>
+          <motion.a
+            href="https://github.com/FujiwaraChoki"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-gray-500 dark:text-gray-400 my-2 flex items-center gap-1"
+            onMouseEnter={() => setGithubLinkHovered(true)}
+            onMouseLeave={() => setGithubLinkHovered(false)}
+            initial={{ opacity: 0, y: 12, filter: "blur(2px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            exit={{ opacity: 0, y: -4, filter: "blur(2px)" }}
+          >
+            <motion.span initial={false} className="relative inline-flex items-center">
+              <span className="relative inline-block" style={{ width: 24, height: 24 }}>
+                <motion.span
+                  key="github-icon"
+                  initial={false}
+                  animate={{ opacity: githubLinkHovered ? 0 : 1, rotate: 0 }}
+                  transition={{ duration: 0.50, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0"
+                >
+                  <GithubIcon className="size-6" />
+                </motion.span>
+                <motion.span
+                  key="arrow-icon"
+                  initial={false}
+                  animate={{ opacity: githubLinkHovered ? 1 : 0, rotate: githubLinkHovered ? -45 : 0 }}
+                  transition={{ duration: 0.50, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0"
+                >
+                  <CircleArrowRight className="size-6" />
+                </motion.span>
+              </span>
+            </motion.span>
+            @FujiwaraChoki
+          </motion.a>
+        </div>
         </div>
         <QuoteList quotes={quotes} />
         <div className="my-6 w-full" ref={emailPopoverRef}>
