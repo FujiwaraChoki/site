@@ -56,7 +56,7 @@ export default function ThemeToggle() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="fixed top-6 right-6 z-50 p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors group"
+      className="fixed top-6 right-6 z-50 p-2.5 rounded-full bg-neutral-900/5 dark:bg-neutral-100/5 border border-neutral-900/10 dark:border-neutral-100/10 hover:border-neutral-900/20 dark:hover:border-neutral-100/20 transition-colors group"
       aria-label={`Current theme: ${theme}. Click to cycle.`}
     >
       <div className="relative w-4 h-4">
