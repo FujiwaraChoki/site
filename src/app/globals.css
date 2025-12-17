@@ -12,14 +12,34 @@
   --font-mono: var(--font-noto-serif);
 }
 
+/* System preference (default) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.dark) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
+/* Manual dark mode */
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Manual light mode */
+:root.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html {
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: clip;
+  overscroll-behavior-y: auto;
 }
