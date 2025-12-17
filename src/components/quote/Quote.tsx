@@ -20,7 +20,7 @@ export default function Quote({
   const [isTruncated, setIsTruncated] = useState(false);
   const [naturalHeight, setNaturalHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLQuoteElement>(null);
 
   useEffect(() => {
     // Check for mobile (no hover capability)
